@@ -1,0 +1,30 @@
+29/03/2025 17:31:36 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 14exp
+29/03/2025 17:31:39 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 5exp
+29/03/2025 17:34:09 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 3exp
+18/04/2025 18:06:27 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 6exp
+18/04/2025 18:06:28 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: -6exp
+18/04/2025 18:06:46 1.Học kiến thức nền tảng về toán học và thống kê (> 30 minutes) Phần thưởng đạt được là: 10exp
+18/04/2025 18:06:51 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 32exp
+18/04/2025 18:47:57 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 20exp và 5 chương truyện
+18/04/2025 20:53:49 3.Thuật toán machine learning cơ bản (code) Phần thưởng đạt được là: 33exp
+18/04/2025 20:53:52 3.Thuật toán machine learning cơ bản (code) Phần thưởng đạt được là: 37exp
+18/04/2025 23:49:55 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 35exp
+19/04/2025 00:16:02 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 20exp và 1 viên kẹo
+22/04/2025 13:12:26 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 60exp
+22/04/2025 13:12:28 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 10exp
+22/04/2025 13:12:30 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: 32exp
+22/04/2025 13:12:32 2.Thuật toán machine learning cơ bản (lý thuyết) Phần thưởng đạt được là: -20exp
+22/04/2025 13:13:21 2.Thuật toán Deep learning (lý thuyết) Phần thưởng đạt được là: 34exp
+09/05/2025 17:43:56 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 5exp
+09/05/2025 17:43:58 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 5exp
+09/05/2025 17:44:01 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 10exp
+09/05/2025 17:44:02 1.Học kiến thức cơ bản về AI (> 30 minutes) Phần thưởng đạt được là: 10exp
+09/05/2025 17:44:24 1.Học kiến thức nền tảng về Deep Learning (> 30 minutes) Phần thưởng đạt được là: 10exp và Cá mún
+21/05/2025 15:26:29 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 6exp
+21/05/2025 15:26:31 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 3exp
+21/05/2025 15:26:56 3.Thuật toán machine learning cơ bản (code) Phần thưởng đạt được là: 10exp
+21/05/2025 15:26:59 3.Thuật toán machine learning cơ bản (code) Phần thưởng đạt được là: 60exp
+21/05/2025 16:18:08 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 3exp
+21/05/2025 18:58:52 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 6exp
+21/05/2025 18:58:55 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: -6exp
+21/05/2025 18:58:59 Liên tục học 1 điều gì đó trong vòng 24 giờ Phần thưởng đạt được là: 28exp

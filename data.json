@@ -1,0 +1,223 @@
+[
+    {
+        "name": "AI",
+        "level": 1,
+        "progress": 310,
+        "total": 999,
+        "subskills": [
+            {
+                "name": "Machine Learning",
+                "level": 1,
+                "progress": 228,
+                "total": 333,
+                "subskills": [],
+                "parent_skill": "AI",
+                "task": [
+                    {
+                        "description": "1.Học kiến thức nền tảng về toán học và thống kê (> 30 minutes)",
+                        "reward": 10,
+                        "times_completed": 1
+                    },
+                    {
+                        "description": "2.Thuật toán machine learning cơ bản (lý thuyết)",
+                        "reward": 20,
+                        "times_completed": 8
+                    },
+                    {
+                        "description": "3.Thuật toán machine learning cơ bản (code)",
+                        "reward": 20,
+                        "times_completed": 4
+                    },
+                    {
+                        "description": "4. Ôn lại những gì đã học (1 bài)",
+                        "reward": 10,
+                        "times_completed": 0
+                    }
+                ]
+            },
+            {
+                "name": "Deep Learning",
+                "level": 1,
+                "progress": 86,
+                "total": 333,
+                "subskills": [],
+                "parent_skill": "AI",
+                "task": [
+                    {
+                        "description": "1.Học kiến thức nền tảng về Deep Learning (> 30 minutes)",
+                        "reward": 10,
+                        "times_completed": 2
+                    },
+                    {
+                        "description": "2.Thuật toán Deep learning (lý thuyết)",
+                        "reward": 20,
+                        "times_completed": 3
+                    },
+                    {
+                        "description": "3.Thuật toán Deep learning (code)",
+                        "reward": 20,
+                        "times_completed": 4
+                    },
+                    {
+                        "description": "4.Explainable AI (XAI) và Interpretability (Diễn Giải Mô Hình)",
+                        "reward": 10,
+                        "times_completed": 0
+                    },
+                    {
+                        "description": "5.Ôn lại những gì đã học (1 bài)",
+                        "reward": 10,
+                        "times_completed": 0
+                    }
+                ]
+            },
+            {
+                "name": "Data Analys",
+                "level": 0,
+                "progress": 0,
+                "total": 111,
+                "subskills": [],
+                "parent_skill": "AI",
+                "task": [
+                    {
+                        "description": "1.Học kiến thức cơ bản về phân tích dữ liệu (> 30 minutes)",
+                        "reward": 10,
+                        "times_completed": 0
+                    }
+                ]
+            }
+        ],
+        "parent_skill": null,
+        "task": [
+            {
+                "description": "1.Học kiến thức cơ bản về AI (> 30 minutes)",
+                "reward": 10,
+                "times_completed": 7
+            },
+            {
+                "description": "2.Xử lý dữ liệu và tiền xử lý dữ liệu",
+                "reward": 20,
+                "times_completed": 1
+            },
+            {
+                "description": "3.MLOps và triển khai thực tế",
+                "reward": 20,
+                "times_completed": 0
+            },
+            {
+                "description": "4.Các thuật toán tối ưu hóa mô hình",
+                "reward": 15,
+                "times_completed": 6
+            },
+            {
+                "description": "5.Framework trong khi triển khai mô hình",
+                "reward": 10,
+                "times_completed": 1
+            },
+            {
+                "description": "6. Ôn lại những gì đã học (1 bài)",
+                "reward": 10,
+                "times_completed": 1
+            }
+        ]
+    },
+    {
+        "name": "English",
+        "level": 1,
+        "progress": 243,
+        "total": 999,
+        "subskills": [
+            {
+                "name": "Vocabulary",
+                "level": 0,
+                "progress": 24,
+                "total": 111,
+                "subskills": [],
+                "parent_skill": "English",
+                "task": [
+                    {
+                        "description": "1.Học 10-15 từ vựng trong 1 chủ đề",
+                        "reward": 10,
+                        "times_completed": 2
+                    },
+                    {
+                        "description": "2.Ôn 10-15 từ vựng trong 1 chủ đề",
+                        "reward": 5,
+                        "times_completed": 0
+                    },
+                    {
+                        "description": "3.Viết đoạn văn từ 3-4 câu dựa trên chủ đề vừa học",
+                        "reward": 20,
+                        "times_completed": 0
+                    }
+                ]
+            },
+            {
+                "name": "Speaking",
+                "level": 1,
+                "progress": 223,
+                "total": 333,
+                "subskills": [],
+                "parent_skill": "English",
+                "task": [
+                    {
+                        "description": "1.Luyện 5 âm trong tiếng anh",
+                        "reward": 10,
+                        "times_completed": 1
+                    },
+                    {
+                        "description": "2.Đọc 1 bài read aloud > 60%",
+                        "reward": 10,
+                        "times_completed": 7
+                    },
+                    {
+                        "description": "3.Mô tả 1 bức ảnh bằng tiếng anh",
+                        "reward": 15,
+                        "times_completed": 10
+                    },
+                    {
+                        "description": "4.Trả lời 1 câu hỏi bằng tiếng anh",
+                        "reward": 5,
+                        "times_completed": 10
+                    },
+                    {
+                        "description": "5.Trả lời 1 câu hỏi có ngữ liệu bằng tiếng anh",
+                        "reward": 5,
+                        "times_completed": 0
+                    },
+                    {
+                        "description": "6.Trình bày quan điểm cá nhân",
+                        "reward": 30,
+                        "times_completed": 0
+                    }
+                ]
+            },
+            {
+                "name": "Writting",
+                "level": 1,
+                "progress": 114,
+                "total": 333,
+                "subskills": [],
+                "parent_skill": "English",
+                "task": [
+                    {
+                        "description": "1.Viết câu theo 2 bức tranh cho sẵn",
+                        "reward": 5,
+                        "times_completed": 17
+                    },
+                    {
+                        "description": "2.Viết 1 email",
+                        "reward": 20,
+                        "times_completed": 3
+                    },
+                    {
+                        "description": "3.Viết bài luận trình bày quan điểm",
+                        "reward": 50,
+                        "times_completed": 1
+                    }
+                ]
+            }
+        ],
+        "parent_skill": null,
+        "task": []
+    }
+]
