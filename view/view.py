@@ -4,6 +4,27 @@ import tkinter as tk
 from tkinter import ttk
 from config.settings import color_background, text_color
 
+# Hiển thị thông tin nhân vật
+
+def render_character(root,character):
+    label = tk.Label(root, text="Kỹ kinh ngàn chùy, có thể gần như Nghệ.\nNghệ kinh bách luyện, có thể gần như Đạo",
+                      font=("Georgia", 11, 'bold italic'), bg=color_background, fg=text_color)
+    label.pack()
+    label_name = tk.Label(root, text=character.get_name(), font=("Arial", 12, 'bold'),
+                      bg=color_background, fg=text_color)
+    label_name.pack()
+    label_rank = tk.Label(root, text=f"{character.get_name_rank()} ({character.get_small_rank()})",
+                      font=("Arial", 10, 'bold'), bg=color_background, fg=text_color)
+    label_rank.pack()
+
+    progressbar = ttk.Progressbar(root, length=100, mode="determinate",
+                                  maximum=character.get_total(), value=character.get_progress())
+    progressbar.pack()
+    label_progress = tk.Label(root, text=f"{round(character.get_progress() * 100 / character.get_total())}%",
+                      font=("Arial", 9, 'bold'), bg=color_background, fg=text_color)
+    label_progress.pack()
+
+
 # Hiển thị kỹ năng và cây kỹ năng con
 
 def render_skill(root, skill, size, length):
@@ -35,5 +56,6 @@ def render_task(root, skill, size, on_button_task_click, content_frame):
         label_task.pack(fill='x')
 
         button_task = tk.Button(root, text='Hoàn thành', relief="raised",
-                                command=lambda s=skill, t=task: on_button_task_click(s, t, content_frame))
+                                command=lambda t=task: on_button_task_click(t, content_frame))
         button_task.pack(pady=5)
+

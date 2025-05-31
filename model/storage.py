@@ -3,7 +3,7 @@
 import sqlite3
 from model.skill import Skill
 from model.task import Task
-
+from config.settings import rank, rewards
 DB_PATH = "learning.db"
 
 # Lấy tất cả kỹ năng gốc (không có parent)
@@ -18,13 +18,12 @@ def get_root_skills():
 def load_skill_with_subskills(skill_id):
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT id, name, level, progress, total FROM skills WHERE id = ?", (skill_id,))
+        cursor.execute("SELECT id, name, level, progress FROM skills WHERE id = ?", (skill_id,))
         row = cursor.fetchone()
         if not row:
             return None
 
         skill = Skill(name=row[1], level=row[2], progress=row[3], sub_skills=[], tasks=[], parent_skill=None)
-        skill.total = row[4]
         skill.id = row[0]  # Gán thêm ID để dùng sau này
 
         # Load tasks
@@ -32,6 +31,7 @@ def load_skill_with_subskills(skill_id):
         task_rows = cursor.fetchall()
         for t in task_rows:
             task = Task(description=t[0], reward=t[1], times_completed=t[2])
+            task.register(skill)
             skill.add_task(task)
 
         # Load subskills
@@ -55,4 +55,14 @@ def update_task_completion_by_id(skill_id, task_description):
             SET times_completed = times_completed + 1
             WHERE description = ? AND skill_id = ?
         """, (task_description, skill_id))
-        conn.commit()
+
+    conn.commit()
+
+def update_skill_with_reward_by_id(skill_id,current_progress,current_level):
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            UPDATE skills
+            SET progress = ?,level = ?
+            WHERE id = ?
+                       """,(current_progress,current_level,skill_id))

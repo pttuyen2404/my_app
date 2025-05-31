@@ -1,13 +1,14 @@
+-- Tạo bảng skills
 CREATE TABLE IF NOT EXISTS skills (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     level INTEGER NOT NULL,
     progress INTEGER NOT NULL,
     parent_id INTEGER,
-    FOREIGN KEY (parent_id) REFERENCES skills(id),
-    FOREIGN KEY (level) REFERENCES ranks(level)
+    FOREIGN KEY (parent_id) REFERENCES skills(id)
 );
 
+-- Tạo bảng tasks
 CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     skill_id INTEGER NOT NULL,
@@ -17,23 +18,18 @@ CREATE TABLE IF NOT EXISTS tasks (
     FOREIGN KEY (skill_id) REFERENCES skills(id)
 );
 
-CREATE TABLE IF NOT EXISTS ranks (
-    level INTERGER PRIMARY KEY AUTOINCREMENT,
-    total INTERGER NOT NULL,
-    rank TEXT NOT NULL
-);
-
-INSERT INTO skills(id, name, level, progress, parent_id)
-VALUES 
+-- Dữ liệu mẫu cho bảng skills
+INSERT INTO skills(id, name, level, progress, parent_id) VALUES 
 (1,'AI',1,310,NULL),
 (2,'Machine Learning',1,228,1),
 (3,'Deep Learning',1,86,1),
 (4,'Data Analys',0,0,1),
 (5,'English',1,243,NULL),
-(6, 'Vocabulary', 0, 24, 5),
-(7, 'Speaking', 1, 223, 5),
-(8, 'Writting', 1, 114, 5);
+(6,'Vocabulary', 0, 24, 5),
+(7,'Speaking', 1, 223, 5),
+(8,'Writting', 1, 114, 5);
 
+-- Dữ liệu mẫu cho bảng tasks
 INSERT INTO tasks(skill_id, description, reward, times_completed) VALUES
 (1, '1.Học kiến thức cơ bản về AI (> 30 minutes)', 10, 7),
 (1, '2.Xử lý dữ liệu và tiền xử lý dữ liệu', 20, 1),

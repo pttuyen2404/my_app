@@ -5,6 +5,7 @@ class Task:
         self.description = description
         self.reward = reward
         self.times_completed = times_completed
+        self.parent = None
 
     def get_description(self):
         return self.description
@@ -14,21 +15,10 @@ class Task:
 
     def completed(self):
         self.times_completed += 1
+        return self.parent.grow(self.reward)
 
-    def to_dict(self):
-        return {
-            "description": self.description,
-            "reward": self.reward,
-            "times_completed": self.times_completed
-        }
-
-    @classmethod
-    def from_dict(cls, data):
-        return cls(
-            description=data['description'],
-            reward=data['reward'],
-            times_completed=data.get('times_completed', 0)
-        )
+    def register(self,observer):
+        self.parent = observer
 
     @classmethod
     def from_sql_row(cls, row):

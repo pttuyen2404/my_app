@@ -6,17 +6,16 @@ from tkinter import messagebox
 from functools import partial
 from datetime import datetime
 
-from model.skill import Skill
 from model.task import Task
 from model.character import Character
 from model.storage import get_root_skills, update_task_completion_by_id
-from view.skill_view import render_skill, render_task
+from view.view import render_skill, render_task, render_character
 from config.settings import color_background, text_color, window_width, window_height, size, length, rewards
 
-def on_button_task_click(skill: Skill, task: Task, content_frame):
-    reward_info, level_up = skill.grow(task.get_reward())
-    task.completed()
-    update_task_completion_by_id(skill.id, task.get_description())
+def on_button_task_click(task: Task, content_frame):
+
+    reward_info,level_up = task.completed()
+    update_task_completion_by_id(task.parent.id, task.get_description())
 
     message = f"Bạn nhận được {reward_info} EXP"
     if level_up:
@@ -35,25 +34,7 @@ def on_button_task_click(skill: Skill, task: Task, content_frame):
     English_skill = skills[1]
     my_progress = AI_skill.get_total_exp() + English_skill.get_total_exp()
     my = Character("Phan Thanh Tuyển", my_progress)
-
-    label1 = tk.Label(content_frame, text="Kỹ kinh ngàn chùy, có thể gần như Nghệ.\nNghệ kinh bách luyện, có thể gần như Đạo",
-                      font=("Georgia", 11, 'bold italic'), bg=color_background, fg=text_color)
-    label1.pack()
-
-    label2 = tk.Label(content_frame, text=my.get_name(), font=("Arial", 12, 'bold'),
-                      bg=color_background, fg=text_color)
-    label2.pack()
-    label3 = tk.Label(content_frame, text=f"{my.get_name_rank()} ({my.get_small_rank()})",
-                      font=("Arial", 10, 'bold'), bg=color_background, fg=text_color)
-    label3.pack()
-
-    progressbar = ttk.Progressbar(content_frame, length=100, mode="determinate",
-                                  maximum=my.get_total(), value=my.get_progress())
-    progressbar.pack()
-    label4 = tk.Label(content_frame, text=f"{round(my.get_progress() * 100 / my.get_total())}%",
-                      font=("Arial", 9, 'bold'), bg=color_background, fg=text_color)
-    label4.pack()
-
+    render_character(content_frame,my)
     render_skill(content_frame, AI_skill, size, length)
     render_skill(content_frame, English_skill, size, length)
 
@@ -94,25 +75,7 @@ def main():
 
     my_progress = AI_skill.get_total_exp() + English_skill.get_total_exp()
     my = Character("Phan Thanh Tuyển", my_progress)
-
-    label1 = tk.Label(content_frame, text="Kỹ kinh ngàn chùy, có thể gần như Nghệ.\nNghệ kinh bách luyện, có thể gần như Đạo",
-                      font=("Georgia", 11, 'bold italic'), bg=color_background, fg=text_color)
-    label1.pack()
-
-    label2 = tk.Label(content_frame, text=my.get_name(), font=("Arial", 12, 'bold'),
-                      bg=color_background, fg=text_color)
-    label2.pack()
-    label3 = tk.Label(content_frame, text=f"{my.get_name_rank()} ({my.get_small_rank()})",
-                      font=("Arial", 10, 'bold'), bg=color_background, fg=text_color)
-    label3.pack()
-
-    progressbar = ttk.Progressbar(content_frame, length=100, mode="determinate",
-                                  maximum=my.get_total(), value=my.get_progress())
-    progressbar.pack()
-    label4 = tk.Label(content_frame, text=f"{round(my.get_progress() * 100 / my.get_total())}%",
-                      font=("Arial", 9, 'bold'), bg=color_background, fg=text_color)
-    label4.pack()
-
+    render_character(content_frame,my)
     render_skill(content_frame, AI_skill, size, length)
     render_skill(content_frame, English_skill, size, length)
 
@@ -123,7 +86,9 @@ def main():
     for skill in [AI_skill] + AI_skill.get_subskills() + [English_skill] + English_skill.get_subskills():
         render_task(content_frame, skill, size, on_button_task_click, content_frame)
 
+    # Khi canvas thay đổi kích thước cập nhật vùng cuộn
     canvas.bind("<Configure>", lambda event: update_frame_size(event, canvas, frame_id))
+    # Bắt sự kiện cuộn chuột
     canvas.bind_all("<MouseWheel>", lambda event: on_scroll(event, canvas))
     root.mainloop()
 

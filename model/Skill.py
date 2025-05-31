@@ -4,6 +4,7 @@ import random
 from model.task import Task
 from config.settings import rank, rewards
 
+
 class Skill:
     def __init__(self, name, level, progress, tasks=None, sub_skills=None, parent_skill=None, skill_id=None):
         self.name = name
@@ -49,9 +50,23 @@ class Skill:
     def set_parent(self, parent):
         self.parent_skill = parent
 
+    def update_progress(self, amount):
+        level_up = False
+        current_progress = self.progress + amount
+        if current_progress <= self.total:
+            self.progress = current_progress
+        else:
+            self.progress = current_progress - self.total
+            self.level += 1
+            level_up = True
+            self.total = rank[self.level][1] if self.parent_skill else rank[self.level + 1][1]
+        return amount,level_up
     def grow(self, reward):
+        from model.storage import update_skill_with_reward_by_id
+        # tăng tính ngẫu nhiên bằng cách thêm hàm random
         ran = random.randint(1, 105)
         bonus = 0
+        
         if ran >= 104:
             bonus = reward * 10
         elif ran > 95 and ran < 104:
@@ -67,20 +82,14 @@ class Skill:
         elif ran > 70 and ran < 90:
             bonus = int(reward * random.random())
 
-        fprogress = self.progress + reward + bonus
-        level_up = False
-        if fprogress <= self.total:
-            self.progress = fprogress
-        else:
-            self.progress = fprogress - self.total
-            self.level += 1
-            level_up = True
-            self.total = rank[self.level][1] if self.parent_skill else rank[self.level + 1][1]
-
+        reward,lv_up = self.update_progress(bonus + reward)
+        update_skill_with_reward_by_id(self.id,self.progress,self.level)
+        # áp dụng tương tự cho parent_skill 
         if self.parent_skill:
-            self.parent_skill.grow(reward)
+            self.parent_skill.grow(reward) 
+            update_skill_with_reward_by_id(self.parent_skill.id,self.parent_skill.progress,self.parent_skill.level)
 
-        return reward + bonus, level_up
+        return reward,lv_up
 
     def reset(self):
         self.progress = 0
@@ -89,27 +98,3 @@ class Skill:
     def get_level_name(self):
         from config.settings import rank
         return rank[self.level][0]
-
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "level": self.level,
-            "progress": self.progress,
-            "total": self.total,
-            "subskills": [subskill.to_dict() for subskill in self.sub_skills],
-            "parent_skill": self.parent_skill.get_name() if self.parent_skill else None,
-            "task": [task.to_dict() for task in self.tasks]
-        }
-
-    @classmethod
-    def from_dict(cls, data):
-        subskills = [Skill.from_dict(sub) for sub in data['subskills']]
-        tasks = [Task.from_dict(task) for task in data['task']]
-        return cls(
-            name=data['name'],
-            level=data['level'],
-            progress=data['progress'],
-            tasks=tasks,
-            sub_skills=subskills,
-            parent_skill=None  # sẽ thiết lập sau nếu cần
-        )
