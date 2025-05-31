@@ -1,48 +1,42 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov 17 15:41:21 2024
+# model/character.py
 
-@author: hoar1
-"""
-
-from setting import *
-import time
-import random
+from config.settings import rank_character
 
 class Character:
-    def __init__(self,name,progress):
+    def __init__(self, name, progress):
         self.name = name
-        count = 0
-        for count in range(len(rank_character)):
-            if progress > 0:
-               progress -= rank_character[count][1]
-            else:
-                break
-        level = count - 1
-        progress += rank_character[level][1]
-        self.progress = progress
-        self.name_rank = rank_character[level][0]
-        self.total_rank = rank_character[level][1]
-        if self.progress < self.total_rank/3:
-            self.small_rank = "Sơ kỳ"
-        elif self.progress > self.total_rank*2/3:
-            self.small_rank = "Hậu kỳ"
+        self.progress, self.level_index, self.total_rank = self._calculate_level(progress)
+        self.name_rank = rank_character[self.level_index][0]
+        self.small_rank = self._calculate_sub_rank(self.progress, self.total_rank)
+
+    def _calculate_level(self, progress):
+        total = 0
+        for i, (_, threshold) in enumerate(rank_character):
+            if progress < total + threshold:
+                return progress - total, i, threshold
+            total += threshold
+        # Nếu vượt max cấp độ
+        return rank_character[-1][1], len(rank_character) - 1, rank_character[-1][1]
+
+    def _calculate_sub_rank(self, progress, total):
+        if progress < total / 3:
+            return "Sơ kỳ"
+        elif progress > total * 2 / 3:
+            return "Hậu kỳ"
         else:
-            self.small_rank = "Trung kỳ"  
-                
+            return "Trung kỳ"
+
     def get_name(self):
         return self.name
-    
+
     def get_name_rank(self):
         return self.name_rank
-    
+
     def get_small_rank(self):
         return self.small_rank
-    
+
     def get_total(self):
         return self.total_rank
-    
+
     def get_progress(self):
         return self.progress
-    
-    

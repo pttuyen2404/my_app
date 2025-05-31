@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS skills (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    level INTEGER NOT NULL,
+    progress INTEGER NOT NULL,
+    parent_id INTEGER,
+    FOREIGN KEY (parent_id) REFERENCES skills(id),
+    FOREIGN KEY (level) REFERENCES ranks(level)
+);
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    skill_id INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    reward INTEGER NOT NULL,
+    times_completed INTEGER NOT NULL,
+    FOREIGN KEY (skill_id) REFERENCES skills(id)
+);
+
+CREATE TABLE IF NOT EXISTS ranks (
+    level INTERGER PRIMARY KEY AUTOINCREMENT,
+    total INTERGER NOT NULL,
+    rank TEXT NOT NULL
+);

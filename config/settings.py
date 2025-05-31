@@ -6,7 +6,7 @@ Created on Sat Nov  9 19:21:59 2024
 """
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 from tkinter import messagebox
 import json
 import random

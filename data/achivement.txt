@@ -28,3 +28,6 @@
 21/05/2025 18:58:52 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: 6exp
 21/05/2025 18:58:55 Hoàn thành 1 pomodoro 30' Phần thưởng đạt được là: -6exp
 21/05/2025 18:58:59 Liên tục học 1 điều gì đó trong vòng 24 giờ Phần thưởng đạt được là: 28exp
+29/05/2025 23:57:47 1.Học kiến thức cơ bản về AI (> 30 minutes) Bạn nhận được 10 EXP
+29/05/2025 23:57:54 1.Học kiến thức cơ bản về AI (> 30 minutes) Bạn nhận được 10 EXP
+29/05/2025 23:57:58 1.Học kiến thức cơ bản về AI (> 30 minutes) Bạn nhận được 5 EXP
